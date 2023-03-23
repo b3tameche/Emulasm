@@ -1,0 +1,20 @@
+POW:
+  SP = SP - 4
+  M[SP] = 1
+  R4 = M[SP]
+  BGE R4, R3, PC+20
+  R1 = R1 * R2
+  R4 = R4 + 1
+  M[SP] = R4
+  JMP PC-20
+  RV = R1
+  SP = SP + 4
+  RET
+  END_DEF
+
+R1 = 3
+R2 = 3
+R3 = 4
+PRINTF <RV>
+CALL <POW>
+PRINTF <RV>

@@ -1,0 +1,33 @@
+ALU:
+  SP = SP - 4 
+  SP = SP - 4
+  M[SP] = 5
+  PRINTF <M[SP]>
+  R1 = SP + 4
+  M[R1] = 6
+  PRINTF <M[R1]>
+  SP = SP - 4
+  R1 = SP + 8
+  R2 = SP + 4
+  R1 = M[R1]
+  R2 = M[R2]
+  R3 = R1 * R2
+  M[SP] = R3
+  PRINTF <M[SP]>
+  R3 = R1 / R2
+  M[SP] = R3
+  PRINTF <M[SP]>
+  R3 = R2 - R1
+  M[SP] = R3
+  PRINTF <M[SP]>
+  R3 = R1 + R2
+  M[SP] = R3
+  RV = M[SP]
+  SP = SP + 4
+  SP = SP + 4
+  SP = SP + 4
+  RET
+  END_DEF
+
+CALL <ALU>
+PRINTF <RV>

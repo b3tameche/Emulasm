@@ -1,0 +1,24 @@
+FIB:
+  R1 = 0
+  R2 = 1
+  R6 = SP + 4
+  R3 = M[R6]
+  BGT R3, 1, PC+12
+  RV = R3
+  RET
+  R4 = 2
+  BGT R4, R3, PC+24
+  R5 = R1 + R2
+  R1 = R2
+  R2 = R5
+  R4 = R4 + 1
+  JMP PC-20
+  RV = R5
+  RET
+  END_DEF
+
+SP = SP - 4
+M[SP] = 12
+CALL <FIB>
+SP = SP + 4
+PRINTF <RV>

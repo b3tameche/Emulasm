@@ -1,0 +1,30 @@
+FUNC:
+  PRINTF <This function counts sum of squares of numbers from 1 to N>
+  CALL <COMPUTE>
+  RET
+  END_DEF
+
+COMPUTE:
+  SP = SP - 12
+  M[SP] = 1
+  R2 = M[SP]
+  R3 = SP + 4
+  M[R3] = 0
+  R3 = M[R3]
+  R4 = SP + 8
+  M[R4] = 0
+  R4 = M[R4]
+  BGT R2, R1, PC+24
+  R3 = R2 * R2
+  R4 = R4 + R3
+  R2 = R2 + 1
+  M[R4] = R4
+  JMP PC-24
+  RV = R4
+  SP = SP + 12
+  RET
+  END_DEF
+
+R1 = 10
+CALL <FUNC>
+PRINTF <RV>
